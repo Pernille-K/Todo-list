@@ -1,0 +1,24 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "A simple todo-list app using Electron.js",
+  "homepage": "https://github.com/Pernille-K/Todo-list#readme",
+  "bugs": {
+    "url": "https://github.com/Pernille-K/Todo-list/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pernille-K/Todo-list.git"
+  },
+  "license": "ISC",
+  "author": "Pernille",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^35.1.5"
+  }
+}
