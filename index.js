@@ -1,6 +1,7 @@
 const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
+const { globalShortcut } = require('electron');
 
 let win;
 
@@ -33,5 +34,14 @@ function createWindow() {
       if (BrowserWindow.getAllWindows().length === 0) {
         createWindow();
       }
-    });  
+    });
+    
+    globalShortcut.register('CommandOrControl+Shift+I', () => {
+      const wc = win.webContents;
+      if (wc.isDevToolsOpened()) {
+        wc.closeDevTools();
+      } else {
+        wc.openDevTools();
+      }
+    })
   });
