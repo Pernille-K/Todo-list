@@ -1,43 +1,44 @@
 {
-  "name": "todo-list",
-  "version": "1.0.0",
-  "description": "A simple todo-list app using Electron.js",
-  "homepage": "https://github.com/Pernille-K/Todo-list#readme",
-  "bugs": {
-    "url": "https://github.com/Pernille-K/Todo-list/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pernille-K/Todo-list.git"
-  },
-  "license": "ISC",
-  "author": "Pernille",
-  "type": "commonjs",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "test",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make"
-  },
-  "devDependencies": {
-    "@electron-forge/cli": "^7.8.0",
-    "@electron-forge/maker-deb": "^7.8.0",
-    "@electron-forge/maker-rpm": "^7.8.0",
-    "@electron-forge/maker-squirrel": "^7.8.0",
-    "@electron-forge/maker-zip": "^7.8.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.8.0",
-    "@electron-forge/plugin-fuses": "^7.8.0",
-    "@electron-forge/plugin-webpack": "^7.8.0",
-    "@electron/fuses": "^1.8.0",
-    "@types/electron": "^1.4.38",
-    "@types/node": "^22.14.1",
-    "electron": "^35.1.5",
-    "ts-loader": "^9.5.2",
-    "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.1",
-    "lint": "^0.8.19"
-  }
+	"name": "todo-list",
+	"version": "1.0.0",
+	"description": "A simple todo-list app using Electron.js",
+	"homepage": "https://github.com/Pernille-K/Todo-list#readme",
+	"bugs": {
+		"url": "https://github.com/Pernille-K/Todo-list/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pernille-K/Todo-list.git"
+	},
+	"license": "ISC",
+	"author": "Pernille",
+	"type": "commonjs",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "test",
+		"start": "electron .",
+		"package": "electron-forge package",
+		"make": "electron-forge make"
+	},
+	"devDependencies": {
+		"@electron-forge/cli": "^7.8.0",
+		"@electron-forge/maker-deb": "^7.8.0",
+		"@electron-forge/maker-rpm": "^7.8.0",
+		"@electron-forge/maker-squirrel": "^7.8.0",
+		"@electron-forge/maker-zip": "^7.8.0",
+		"@electron-forge/plugin-auto-unpack-natives": "^7.8.0",
+		"@electron-forge/plugin-fuses": "^7.8.0",
+		"@electron-forge/plugin-webpack": "^7.8.0",
+		"@electron/fuses": "^1.8.0",
+		"@types/electron": "^1.4.38",
+		"@types/node": "^22.14.1",
+		"electron": "^35.1.5",
+		"electron-reload": "^2.0.0-alpha.1",
+		"ts-loader": "^9.5.2",
+		"typescript": "^5.8.3"
+	},
+	"dependencies": {
+		"electron-squirrel-startup": "^1.0.1",
+		"lint": "^0.8.19"
+	}
 }
