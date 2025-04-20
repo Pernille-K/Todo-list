@@ -1,0 +1,173 @@
+:root {
+	font-family: "Roboto", sans-serif;
+	--background-color-body: #e4c9ff;
+	--background-color-container: #c78eff;
+	--details-color: #f6edff;
+}
+
+body {
+	background-color: var(--background-color-body);
+	text-align: center;
+	font-weight: 300;
+	font-family: "Roboto", sans-serif;
+	margin: 0;
+}
+
+#container {
+	background-color: var(--background-color-container);
+	margin: 2vh auto;
+	padding: 3vh;
+	width: 80vw;
+	height: 80vh;
+	height: fit-content;
+	border-radius: 5px;
+}
+
+h1 {
+	font-family: "Dancing Script", cursive;
+	font-weight: 700;
+	font-size: 4rem;
+	text-align: center;
+	margin: 2vh 0;
+	cursor: default;
+}
+
+
+/* Input form */
+
+#task-input-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+	gap: 0.5rem;
+	width: 90%;
+	padding: 0 1rem;
+	flex-wrap: wrap;
+}
+
+label {
+	font-size: 1.3rem;
+	white-space: nowrap;
+}
+
+#task-input {
+	min-width: 0;
+	flex: 1;
+	padding: 0.5rem;
+	outline: none;
+}
+
+#submit-button,
+#task-input {
+	background: var(--background-color-body);
+	font-weight: 100;
+	font-size: 1rem;
+	border-radius: 10px;
+	border: none;
+	app-region: no-drag;
+}
+
+#submit-button {
+	padding: 0.5rem 1rem;
+	flex-shrink: 0;
+}
+
+#submit-button:hover,
+#task-input:hover,
+#task-input:focus {
+	background-color: var(--details-color);
+	color: black;
+	transition: all 0.15s ease;
+	cursor: pointer;
+}
+
+#submit-button:hover {
+	transform: scale(1.03);
+}
+
+output {
+	display: block;
+	text-align: center;
+	font-size: 1.3rem;
+	font-style: italic;
+	cursor: default;
+	padding-top: 2vh;
+}
+
+/* To-do list */
+
+ul {
+	list-style: none;
+	font-size: 1.3rem;
+	text-align: left;
+	cursor: default;
+}
+
+li {
+	margin: 1vh;
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	justify-content: space-between;
+	align-items: center;
+}
+
+
+input[type="checkbox"] {
+	appearance: none;
+	background-color: var(--details-color);
+	margin: 0;
+	font: inherit;
+	width: 1.15em;
+	height: 1.15em;
+	border: none;
+	align-self: center;
+	text-align: center;
+	border-radius: 5px;
+	transform: translateY(0.075em);
+	margin-right: 0.5em;
+	display: grid;
+	place-content: center;
+	float: left;
+	app-region: no-drag;
+}
+
+input[type="checkbox"]::before {
+	content: "";
+	width: 0.75em;
+	height: 0.75em;
+	transform: scale(0);
+	transition: transform 120ms ease-in-out;
+	box-shadow: inset 1em 1em var(--background-color-container);
+	transform-origin: bottom left;
+	clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+	transform: scale(1);
+}
+
+@media (max-width: 400px) {
+	#task-input-container {
+		flex-direction: column;
+		align-items: stretch;
+		align-items: center;
+	}
+
+	#task-input {
+		width: 100%;
+	}
+
+	#task-input-container > label {
+		display: none;
+	}
+
+	#submit-button {
+		max-width: fit-content;
+	}
+
+	ul {
+		padding-left: 1rem;
+	}
+}
