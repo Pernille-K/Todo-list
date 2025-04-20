@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="todos.js"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 		<link rel="stylesheet" href="styles.css" />
 		<title>To-do list</title>
 	</head>
@@ -20,13 +22,14 @@
 			<header>
 				<h1>To-do list</h1>
 			</header>
-			<form>
+			<div id="task-input-container">
 				<label for="task-input">Task: </label>
-				<input type="text" id="task-input" name="task-input" autofocus required autocomplete="off" />
-				<input type="submit" value="Add" id="submit-button" onClick="addTask()" />
-				<output id="output"></output>
-			</form>
+				<input type="text" id="task-input" name="task-input" autofocus autocomplete="off" minlength="1" />
+				<button id="submit-button">Add</button>
+			</div>
+			<output id="output"></output>
 			<ul id="task-list"></ul>
 		</div>
+		<script src="todos.js"></script>
 	</body>
 </html>
