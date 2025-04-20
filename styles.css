@@ -32,6 +32,52 @@ h1 {
 	cursor: default;
 }
 
+/* Titlebar */
+
+.titlebar {
+	height: 30px;
+	background: var(--background-color-container);
+	color: black;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0.5rem;
+	align-items: center;
+	user-select: none;
+	app-region: drag;
+	margin: 0;
+}
+
+.window-controls {
+	display: flex;
+	gap: 0.25rem;
+	app-region: no-drag;
+}
+
+.window-controls button {
+	background-color: var(--background-color-container);
+	border: none;
+	color: black;
+	width: 35px;
+	height: auto;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 2px;
+}
+
+.window-controls .close:hover {
+	background: #ff5555;
+	color: white;
+}
+
+.window-controls .minimize:hover {
+	filter: brightness(1.5);
+}
+
+.window-controls .maximize:hover {
+	filter: brightness(1.5);
+}
 
 /* Input form */
 
