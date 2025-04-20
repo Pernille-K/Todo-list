@@ -34,14 +34,32 @@ function addTask() {
 
 	document.getElementById("task-input").value = "";
 
+	let timeAdded = getAndFormatTime();
 
 	tasks.push({
 		name: String(taskName),
+		timestamp: timeAdded,
 	});
 
 	addListener(taskName);
 }
 
+function getAndFormatTime() {
+	let currentDate = new Date();
+	let hours = currentDate.getHours();
+	let minutes = currentDate.getMinutes();
+
+	if (hours < 10) {
+		hours = `0${hours}`;
+	}
+
+	if (minutes < 10) {
+		minutes = `0${minutes}`;
+	}
+
+	let timeAdded = `${currentDate} ${hours}:${minutes}`;
+	return timeAdded;
+}
 
 function iterateTasks(taskName) {
 	for (let task of tasks) {
