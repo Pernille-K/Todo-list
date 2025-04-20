@@ -159,6 +159,12 @@ li {
 	align-items: center;
 }
 
+.deleteButton {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	font-size: 2rem;
+}
 
 input[type="checkbox"] {
 	appearance: none;

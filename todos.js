@@ -22,12 +22,20 @@ function addTask() {
 	inputElement.setAttribute("type", "checkbox");
 	inputElement.setAttribute("id", "checkbox_" + taskName);
 
+	let deleteButton = document.createElement("button");
+	deleteButton.setAttribute("class", "deleteButton");
+	deleteButton.addEventListener("click", () => {
+		deleteTask(taskName);
+	});
+
+	deleteButton.innerText = "🗑";
 
 	const inputAndLabelElement = document.createElement("span");
 	inputAndLabelElement.appendChild(inputElement);
 	inputAndLabelElement.appendChild(textContent);
 
 	listItem.appendChild(inputAndLabelElement);
+	listItem.appendChild(deleteButton);
 
 	const list = document.getElementById("task-list");
 	list.insertBefore(listItem, list.firstChild);
@@ -64,9 +72,7 @@ function getAndFormatTime() {
 
 function iterateTasks(taskName) {
 	for (let task of tasks) {
-		console.log(task);
 		if (task.name === taskName) {
-			console.log("taskname = taskname" + task);
 			return task;
 		}
 	}
@@ -103,7 +109,6 @@ function onChange(e) {
 }
 
 function updateOutput() {
-	console.log("output updated");
 	const outputElement = document.getElementById("output");
 	const noTasks = tasks.length;
 
@@ -117,7 +122,6 @@ function updateOutput() {
 }
 
 function checkAndChangeBackground(proportionIndex) {
-	console.log("er inni checkandchangebackground");
 	const root = document.documentElement;
 
 	// The thresholds array contains thresholds where each defines a max value and the corresponding colors for container and body
@@ -134,6 +138,20 @@ function checkAndChangeBackground(proportionIndex) {
 	root.style.setProperty("--background-color-container", containerColor);
 	root.style.setProperty("--background-color-body", bodyColor);
 	root.style.setProperty("--details-color", detailsColor);
+}
+
+function deleteTask(taskName) {
+	const index = tasks.findIndex((task) => task.name === taskName);
+	if (index !== -1) {
+		tasks.splice(index, 1);
+	}
+
+	const taskElement = document.getElementById(taskName);
+	if (taskElement) {
+		taskElement.remove();
+	}
+
+	updateOutput();
 }
 
 const tasks = [];
