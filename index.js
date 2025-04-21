@@ -15,6 +15,7 @@ function createWindow() {
 		height: 600,
 		// titleBarStyle: "hidden",
 		frame: false,
+		icon: path.join(__dirname, "assets", "icon.ico"),
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: true,
