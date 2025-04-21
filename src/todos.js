@@ -118,29 +118,41 @@ function updateOutput() {
 
 	outputElement.innerText = ` ${noCompleted} / ${noTasks} completed`;
 
-	let proportionIndex = noTasks > 0 ? noCompleted / noTasks : 0;
-
-	checkAndChangeBackground(proportionIndex);
+	checkAndChangeBackground(noTasks, noCompleted);
 }
 
-function checkAndChangeBackground(proportionIndex) {
+function checkAndChangeBackground(noTasks, noCompleted) {
 	const root = document.documentElement;
+
+	const purple = {
+		container: "#C78EFF",
+		body: "#e4c9ff",
+		details: "#f6edff",
+	};
 
 	// The thresholds array contains thresholds where each defines
 	// a max value and the corresponding colors for container and body
 	const thresholds = [
-		{ max: 0.25, containerColor: "#FF6961", bodyColor: "#ff9e99", detailsColor: "#ffe6e5" },
-		{ max: 0.5, containerColor: "#fab350", bodyColor: "#ffcc84", detailsColor: "#fce8cf" },
-		{ max: 0.75, containerColor: "#F8D66D", bodyColor: "#ffe79f", detailsColor: "#fff4d3" },
-		{ max: 1, containerColor: "#c78eff", bodyColor: "#e4c9ff", detailsColor: "#f6edff" },
-		{ max: Infinity, containerColor: "#C78EFF", bodyColor: "#e4c9ff", detailsColor: "#f6edff" },
+		{ max: 0.25, colors: { container: "#FF6961", body: "#ff9e99", details: "#ffe6e5" } }, // rød
+		{ max: 0.5, colors: { container: "#fab350", body: "#ffcc84", details: "#fce8cf" } }, // oransje
+		{ max: 0.75, colors: { container: "#F8D66D", body: "#ffe79f", details: "#fff4d3" } }, // gul
+		{ max: 1, colors: { container: "#6FCF97", body: "#b3ebc9", details: "#e4fcef" } }, // grønn
 	];
 
-	const { containerColor, bodyColor, detailsColor } = thresholds.find((threshold) => proportionIndex <= threshold.max);
+	let colors;
 
-	root.style.setProperty("--background-color-container", containerColor);
-	root.style.setProperty("--background-color-body", bodyColor);
-	root.style.setProperty("--details-color", detailsColor);
+	if (noTasks === 0) {
+		colors = purple;
+	} else {
+		const proportion = noCompleted / noTasks;
+		colors = thresholds.find((threshold) => proportion <= threshold.max).colors;
+	}
+
+	const { container, body, details } = colors;
+
+	root.style.setProperty("--background-color-container", container);
+	root.style.setProperty("--background-color-body", body);
+	root.style.setProperty("--details-color", details);
 }
 
 function deleteTask(taskName) {
