@@ -11,7 +11,7 @@ function createWindow() {
 		width: 550,
 		height: 600,
 		frame: false,
-		icon: path.join(__dirname, "assets", "icon.ico"),
+		icon: path.join(__dirname, "../assets/icon.ico"),
 		webPreferences: {
 			nodeIntegration: false,
 			contextIsolation: true,
@@ -21,7 +21,7 @@ function createWindow() {
 	});
 
 	win.removeMenu();
-	win.loadFile("index.html");
+	win.loadFile("./index.html");
 
 	ipcMain.on("load-page", (event, page) => {
 		win.loadFile(page);
