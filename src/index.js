@@ -2,18 +2,14 @@ const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
 const { globalShortcut } = require("electron");
+const electronReload = require("electron-reload");
 
 let win;
-
-require("electron-reload")(__dirname, {
-	electron: require(`${__dirname}/node_modules/electron`),
-});
 
 function createWindow() {
 	win = new BrowserWindow({
 		width: 550,
 		height: 600,
-		// titleBarStyle: "hidden",
 		frame: false,
 		icon: path.join(__dirname, "assets", "icon.ico"),
 		webPreferences: {
