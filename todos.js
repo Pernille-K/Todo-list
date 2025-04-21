@@ -7,7 +7,9 @@ function addTask() {
 	}
 
 	const listItem = document.createElement("li");
-	const textContent = document.createTextNode(taskName);
+	const textSpan = document.createElement("span");
+	textSpan.classList.add("breakable-text");
+	textSpan.textContent = taskName;
 
 	if (document.getElementById(taskName)) {
 		while (document.getElementById(taskName + "_" + i)) {
@@ -32,7 +34,7 @@ function addTask() {
 
 	const inputAndLabelElement = document.createElement("span");
 	inputAndLabelElement.appendChild(inputElement);
-	inputAndLabelElement.appendChild(textContent);
+	inputAndLabelElement.appendChild(textSpan);
 
 	listItem.appendChild(inputAndLabelElement);
 	listItem.appendChild(deleteButton);

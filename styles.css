@@ -125,11 +125,11 @@ label {
 	background-color: var(--details-color);
 	color: black;
 	transition: all 0.15s ease;
-	cursor: pointer;
 }
 
 #submit-button:hover {
 	transform: scale(1.03);
+	cursor: pointer;
 }
 
 output {
@@ -156,14 +156,30 @@ li {
 	flex-direction: row;
 	position: relative;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
+	gap: 0.5rem;
+}
+
+.breakable-text {
+	word-break: break-word;
+	overflow-wrap: break-word;
+	white-space: normal;
+	hyphens: auto;
+	flex: 1 1 auto;
 }
 
 .deleteButton {
+	flex-shrink: 0;
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	font-size: 2rem;
+}
+
+.deleteButton:hover {
+	transform: scale(1.03);
+	transition: all 0.15s ease;
+	color: var(--details-color);
 }
 
 input[type="checkbox"] {
