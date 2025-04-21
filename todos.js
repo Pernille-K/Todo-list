@@ -126,13 +126,14 @@ function updateOutput() {
 function checkAndChangeBackground(proportionIndex) {
 	const root = document.documentElement;
 
-	// The thresholds array contains thresholds where each defines a max value and the corresponding colors for container and body
+	// The thresholds array contains thresholds where each defines
+	// a max value and the corresponding colors for container and body
 	const thresholds = [
 		{ max: 0.25, containerColor: "#FF6961", bodyColor: "#ff9e99", detailsColor: "#ffe6e5" },
 		{ max: 0.5, containerColor: "#fab350", bodyColor: "#ffcc84", detailsColor: "#fce8cf" },
 		{ max: 0.75, containerColor: "#F8D66D", bodyColor: "#ffe79f", detailsColor: "#fff4d3" },
-		{ max: 1, containerColor: "#8CD47E", bodyColor: "#aeefa1", detailsColor: "#e5ffe0" },
-		{ max: Infinity, containerColor: "#e4c9ff", bodyColor: "#C78EFF", detailsColor: "#f6edff" },
+		{ max: 1, containerColor: "#c78eff", bodyColor: "#e4c9ff", detailsColor: "#f6edff" },
+		{ max: Infinity, containerColor: "#C78EFF", bodyColor: "#e4c9ff", detailsColor: "#f6edff" },
 	];
 
 	const { containerColor, bodyColor, detailsColor } = thresholds.find((threshold) => proportionIndex <= threshold.max);
@@ -173,7 +174,7 @@ document.querySelector(".close").addEventListener("click", () => {
 
 document.getElementById("submit-button").addEventListener("click", addTask);
 
-document.getElementById("task-input").addEventListener("keypress", function(e) {
+document.getElementById("task-input").addEventListener("keypress", function (e) {
 	if (e.key === "Enter") {
 		addTask();
 	}
