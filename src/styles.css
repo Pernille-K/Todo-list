@@ -23,13 +23,6 @@ body {
 	border-radius: 5px;
 }
 
-body,
-.container,
-.details {
-	transition: background-color 0.4s ease-in-out;
-	transition: background-color 0.6s ease-in-out;
-}
-
 h1 {
 	font-family: "Dancing Script", cursive;
 	font-weight: 700;
@@ -203,6 +196,7 @@ input[type="checkbox"] {
 	place-content: center;
 	float: left;
 	app-region: no-drag;
+	cursor: pointer;
 }
 
 input[type="checkbox"]::before {

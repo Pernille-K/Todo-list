@@ -16,7 +16,9 @@ A simple and colorful to-do list app created with **Electron.js**.
 
 Stay organized with your daily tasks, and get visual feedback with a background that changes color to track your progress. Perfect for simple planning and satisfying completions ✨
 
-![App Screenshot](./assets/display.png)
+<p align="center">
+<img src="./assets/display_complete.png">
+</p>
 
 ## ⚙️ Features
 
