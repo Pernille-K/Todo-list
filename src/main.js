@@ -2,7 +2,10 @@ const path = require("path");
 const { app, BrowserWindow, ipcMain } = require("electron");
 const fs = require("fs");
 const { globalShortcut } = require("electron");
-const electronReload = require("electron-reload");
+
+// if (require("electron-is-dev")) {
+// 	require("electron-reload")(__dirname);
+// }
 
 let win;
 
@@ -21,7 +24,7 @@ function createWindow() {
 	});
 
 	win.removeMenu();
-	win.loadFile("./index.html");
+	win.loadFile(path.join(__dirname, "index.html"));
 
 	ipcMain.on("load-page", (event, page) => {
 		win.loadFile(page);
